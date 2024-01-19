@@ -48,9 +48,9 @@ websocketserver.on("connection", (socket) => {
   socket.broadcast.emit("newuser", count);
   console.log("Current Count of User is :", count);
 
-  websocketserver.emit("usercount", count); // sends to every user
+  websocketserver.emit("usercount", count); // Sends to every user
 
-  socket.emit("message", "Hello from Server");
+  socket.emit("message", "Hello from Server"); /* So, when this line of code is executed, the server sends the message "Hello from Server" specifically to the client that is associated with the socket object. This is useful for sending personalized messages or responses directly to a specific client.*/
 
   socket.on("message", (msg) => {
     console.log("Message From Client Side " + msg + "");
